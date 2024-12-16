@@ -1,0 +1,2 @@
+pysoem==1.1.9
+pytango==9.3.6
