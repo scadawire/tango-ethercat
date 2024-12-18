@@ -115,24 +115,16 @@ class EtherCAT(Device, metaclass=DeviceMeta):
         # REAL - c_float - DevFloat - f
         # BOOL - c_bool - DevBoolean - c
 
-        if(variableType == CmdArgType.DevChar) return 'b'
-        if(variableType == CmdArgType.DevShort) return 'h'
-        if(variableType == CmdArgType.DevLong) return 'i'
-        if(variableType == CmdArgType.DevLong64) return 'q'
-        if(variableType == CmdArgType.DevUChar) return 'B'
-        if(variableType == CmdArgType.DevUShort) return 'H'
-        if(variableType == CmdArgType.DevULong) return 'I'
-        if(variableType == CmdArgType.DevULong64) return 'Q'
-        if(variableType == CmdArgType.DevFloat) return 'f'
-        if(variableType == CmdArgType.DevBoolean) return 'c'
-        raise ValueError("Unsupported value type for binary translation")
-
-    def translate_to_binary(self, value, variableType):
-        # see also https://de.mathworks.com/help/slrealtime/io_ref/ethercat-data-types.html
-        # see also https://pysoem.readthedocs.io/en/latest/coe_objects.html
-        # see also https://tango-controls.readthedocs.io/projects/rfc/en/latest/9/DataTypes.html
-        if(variableType == CmdArgType.DevLong)
-            return value.to_bytes(4, byteorder='little')
+        if(variableType == CmdArgType.DevChar): return 'b'
+        if(variableType == CmdArgType.DevShort): return 'h'
+        if(variableType == CmdArgType.DevLong): return 'i'
+        if(variableType == CmdArgType.DevLong64): return 'q'
+        if(variableType == CmdArgType.DevUChar): return 'B'
+        if(variableType == CmdArgType.DevUShort): return 'H'
+        if(variableType == CmdArgType.DevULong): return 'I'
+        if(variableType == CmdArgType.DevULong64): return 'Q'
+        if(variableType == CmdArgType.DevFloat): return 'f'
+        if(variableType == CmdArgType.DevBoolean): return 'c'
         raise ValueError("Unsupported value type for binary translation")
 
     def bytes_per_variable_type(self, variableType):
